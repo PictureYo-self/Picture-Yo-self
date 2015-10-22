@@ -11,6 +11,7 @@ from time import strftime
 #import 
 
 name2 = raw_input("Enter your first name: ")
+email = raw_input("Enter your email address: ")
 #Time1= strftime("%Y-%m-%d-%H_%M_%S")
 with picamera.PiCamera() as camera:
 	camera.resolution = (1024, 768)
@@ -22,4 +23,7 @@ with picamera.PiCamera() as camera:
 #cv2.imshow('image',name1)
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','w')
 f.write(name1)
+f.close()
+f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','w')
+f.write(email)
 f.close()

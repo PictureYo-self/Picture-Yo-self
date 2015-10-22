@@ -2,5 +2,8 @@
 
 python capture.py 
 name5=`cat ./pictures/picName.txt`
+email1=`cat ./pictures/email.txt`
+body=`cat ./pictures/body.txt`
 echo $name5
 fbi $name5
+mpack -s "Thanks for using Rice PhotoBooth!" -d ./pictures/body.txt $name5 $email1
