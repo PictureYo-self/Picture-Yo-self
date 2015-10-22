@@ -11,8 +11,9 @@ We are planning on prototyping a photo booth using Raspberry Pi. We will design 
 Team Picture Yourself will create a photobooth that will allow users to choose various frames and filters and draw or write messages on their images as desired. The need for such a device arises from the dearth of quality photobooths in Houston in general and also at specific events such as Esperanza and Rondelet, two major prom-esque parties that occur annually at Rice. We will be designing and prototyping the hardware necessary for a working photobooth. We will be using Raspberry Pi, the Pi camera, a 7-inch capacitive touchscreen, and potentially other accessories to recreate and surpass the capabilities of photobooths that are currently available and tailor them specifically to Rice students. 
 
 Our strategy is to begin by building a basic photobooth device, where a user is able to take a picture, check the quality of the photo, and email it to themselves. From there, we will be incorporating additional functionality including, but not limited to:
--- filters
--- picture frames
--- drawing or writing messages on the photo
--- automatically sending edited photos to a Rice email address with the swipe of a Rice ID
--- incorporating automatic feature detection with OpenCV so users can distort or embellish facial features
+
+- filters
+- picture frames
+- drawing or writing messages on the photo
+- automatically sending edited photos to a Rice email address with the swipe of a Rice ID
+- incorporating automatic feature detection with OpenCV so users can distort or embellish facial features
