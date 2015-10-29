@@ -8,22 +8,16 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 
-Builder.load_string(’’’
-<CustomLayout>
+Builder.load_string('''
+<GridLayout>
   canvas.before:
-    Color:
-      rgba: 0, 1, 0, 1
-    Rectangle:
+    BorderImage:
+      border: 10, 10, 10, 10
+      source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
       pos: self.pos
       size: self.size
+''')
       
-<RootWidget>
-  CustomLayout:
-    AsyncImage:
-      source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
-      #size_hint: 1, .5
-      #pos_hint: {'center_x':.5, 'center_y': .5}
-
 class MyPaintWidget(Widget):
 	
 	def on_touch_down(self, touch):
@@ -37,9 +31,7 @@ class MyPaintWidget(Widget):
 	def on_touch_move(self, touch):
 		touch.ud['line'].points += [touch.x, touch.y]
 
-class RootWidget(BoxLayout):
-  pass
-class CustomLayout(FloatLayout):
+class RootWidget(FloatLayout):
   pass
 
 class MyPaintApp(App):
