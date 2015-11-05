@@ -13,14 +13,17 @@ from kivy.lang import Builder
 #:import kivy kivy
 #:import win kivy.core.window
 
+root = Builder.load_string('''
 FloatLayout:
     canvas.before:
         Color:
             rgb: 1, 1, 1
         Rectangle:
             source: 'home/pi/Picture-Yo-self/code/pictures/my13.jpg'
+            pos: self.pos
             size: self.size
             
+''')
 
 # Builder.load_string('''
 #<CustomLayout>
