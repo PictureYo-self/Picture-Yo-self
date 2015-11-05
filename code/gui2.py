@@ -14,7 +14,7 @@ from kivy.lang import Builder
 #:import win kivy.core.window
 
 FloatLayout:
-    canvas:
+    canvas.before:
         Color:
             rgb: 1, 1, 1
         Rectangle:
@@ -22,20 +22,20 @@ FloatLayout:
             size: self.size
             
 
-''' Builder.load_string('''
-<CustomLayout>
-    canvas.before:
-        Color:
-            rgba: 0, 1, 0, 1
-        Rectangle: 
-            pos: self.pos
-            size: self.size
+# Builder.load_string('''
+#<CustomLayout>
+#    canvas.before:
+#        Color:
+#            rgba: 0, 1, 0, 1
+#        Rectangle: 
+#            pos: self.pos
+#            size: self.size
 #<RootWidget>
 #    CustomLayout:
 #        AsyncImage:
 #	    source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
-''')
-'''
+#''')
+
 class RootWidget(BoxLayout):
     pass
 
