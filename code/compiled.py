@@ -18,7 +18,7 @@ f.close()
 #with open('/home/pi/Picture-Yo-self/code/pictures/picName.txt', 'r') as f:
 #	picname = f.read()
 #>>> f.closed
-'''
+
 #Builder.load_string('''
 #<RootWidget>
 #    AsyncImage:
@@ -26,7 +26,7 @@ f.close()
 #    	pos: self.pos
 #    	size: self.size
 #''')
-
+'''
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
