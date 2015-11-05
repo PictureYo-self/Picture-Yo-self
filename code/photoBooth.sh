@@ -3,7 +3,7 @@
 python capture.py 
 filename=`cat ./pictures/picName.txt`
 netid=`cat ./pictures/email.txt`
-
+python compiled.py
 fbi $filename
 
 email1=$netid"@rice.edu"
