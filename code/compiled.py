@@ -1,4 +1,4 @@
-#! /usr/bin/python
+
 
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
@@ -20,6 +20,13 @@ pic1 = '\'' + picname + '\''
 print pic1
 
 Builder.load_string('''
+<CustomLayout>
+    canvas.before:
+        Color:
+            rgba: 0, 1, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
 <RootWidget>
     AsyncImage:
 	source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
