@@ -13,6 +13,7 @@ global picname
 picname = f.read()
 print picname
 f.close()
+global pic1
 pic1 = '\'' + picname + '\''
 
 #print pic1
