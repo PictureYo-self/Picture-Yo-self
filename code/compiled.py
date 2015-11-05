@@ -10,8 +10,13 @@ from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.app import App
 
-f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','w')
+f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 picname = f.read()
+f.close()
+
+#with open('/home/pi/Picture-Yo-self/code/pictures/picName.txt', 'r') as f:
+#	picname = f.read()
+#>>> f.closed
 
 Builder.load_string('''
 <RootWidget>
