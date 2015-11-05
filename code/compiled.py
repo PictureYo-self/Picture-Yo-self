@@ -11,9 +11,10 @@ from kivy.graphics import Color, Ellipse, Line
 from kivy.app import App
 
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
-picname = f.read()
-print picname
-f.close()
+print f
+#picname = f.read()
+#print picname
+#f.close()
 
 #with open('/home/pi/Picture-Yo-self/code/pictures/picName.txt', 'r') as f:
 #	picname = f.read()
