@@ -62,7 +62,7 @@ class MainApp(App):
 		parent.add_widget(savebtn)
 		def save_pic(obj):
 		  root.export_to_png('a.png')
-	  savebtn.bind(on_release=save_pic)
+		savebtn.bind(on_release=save_pic)
 	  
 		c.add_widget(self.im) 
 		root.add_widget(c)
