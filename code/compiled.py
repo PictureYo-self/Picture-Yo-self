@@ -16,7 +16,12 @@ Builder.load_string('''
         Rectangle:
             pos: self.pos
             size: self.size
-<MyPaintWidget(Widget)>
+<RootWidget>
+    AsyncImage:
+        source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
+''')
+
+class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
 		with self.canvas:
@@ -27,13 +32,10 @@ Builder.load_string('''
 
 	def on_touch_move(self, touch):
 		touch.ud['line'].points += [touch.x, touch.y]
-    AsyncImage:
-        source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
-''')
-
-
+		
 class MainApp(App):
 	def build(self):
+#		return RootWidget()
 		parent = Widget()
 		painter = MyPaintWidget()
 		clearbtn = Button(text='Clear')
@@ -42,8 +44,7 @@ class MainApp(App):
 		def clear_canvas(obj):
 			painter.canvas.clear()
 		clearbtn.bind(on_release=clear_canvas)
-
-		return parent
+		RootWidget.add_widget(parent)
 		return RootWidget()
 
 class RootWidget(BoxLayout):
