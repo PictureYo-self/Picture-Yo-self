@@ -12,7 +12,6 @@ Builder.load_string('''
 <RootWidget>
     AsyncImage:
         source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
-    FloatLayout:
     	pos: self.pos
     	size: self.size
 ''')
@@ -22,7 +21,6 @@ class MyPaintWidget(Widget):
 		color = (random(), 1, 1)
 		with self.canvas:
 			Color(*color, mode='hsv')
-			d = 30.
 			touch.ud['line'] = Line(points=(touch.x, touch.y))
 
 	def on_touch_move(self, touch):
