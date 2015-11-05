@@ -8,6 +8,7 @@ from kivy.graphics import Color, Rectangle
 from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.uix.image import Image
+import sys
 
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 global picname 
@@ -64,6 +65,7 @@ class MainApp(App):
 		parent.add_widget(savebtn)
 		def save_pic(obj):
 		  root.export_to_png(email)
+		  sys.exit()
 		savebtn.bind(on_release=save_pic)
 	  
 		c.add_widget(self.im) 
