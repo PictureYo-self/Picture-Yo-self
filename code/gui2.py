@@ -8,7 +8,21 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 
-Builder.load_string('''
+
+#:kivy 1.0
+#:import kivy kivy
+#:import win kivy.core.window
+
+FloatLayout:
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            source: 'home/pi/Picture-Yo-self/code/pictures/my13.jpg'
+            size: self.size
+            
+
+''' Builder.load_string('''
 <CustomLayout>
     canvas.before:
         Color:
@@ -21,7 +35,7 @@ Builder.load_string('''
 #        AsyncImage:
 #	    source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
 ''')
-
+'''
 class RootWidget(BoxLayout):
     pass
 
