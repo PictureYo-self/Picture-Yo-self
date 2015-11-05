@@ -31,7 +31,7 @@ class MyPaintWidget(Widget):
 		color = (random(), 1, 1)
 		with self.canvas:
 			Color(*color, mode='hsv')
-			d = 30.
+			#d = 30.
 			#Ellipse(pos=(touch.x - d / 2, touch.y - d / 2), size=(d, d))
 			touch.ud['line'] = Line(points=(touch.x, touch.y))
 
@@ -53,7 +53,7 @@ class Imglayout(FloatLayout):
         self.rect.pos=instance.pos
 		
 class MainApp(App):
-	im=Image(source='/home/pi/Picture-Yo-self/code/pictures/ss67.jpg')
+	im=Image(source=picname)
 	def build(self):
 		root = BoxLayout(orientation='vertical')
 		c = Imglayout()
