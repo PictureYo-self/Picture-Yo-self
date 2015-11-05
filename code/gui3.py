@@ -11,10 +11,10 @@ from kivy.lang import Builder
 root = Builder.load_string('''
 
   canvas.before:
-          Rectangle:
-              pos: self.pos
-              size: self.size
-              source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
 
 #  FloatLayout:
 #    canvas.before:
