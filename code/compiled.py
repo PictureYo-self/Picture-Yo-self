@@ -16,11 +16,6 @@ Builder.load_string('''
         Rectangle:
             pos: self.pos
             size: self.size
-<RootWidget>
-    AsyncImage:
-        source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
-''')
-
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
@@ -32,7 +27,11 @@ class MyPaintWidget(Widget):
 
 	def on_touch_move(self, touch):
 		touch.ud['line'].points += [touch.x, touch.y]
-		
+    AsyncImage:
+        source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
+''')
+
+
 class MainApp(App):
 	def build(self):
 		parent = Widget()
