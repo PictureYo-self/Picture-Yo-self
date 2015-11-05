@@ -1,14 +1,14 @@
 #! /usr/bin/python
 
-from kivy.app import App
-from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.boxlayout import BoxLayout
-from kivy.lang import Builder
-from random import random
-from kivy.uix.widget import Widget
-from kivy.uix.button import Button
-from kivy.graphics import Color, Ellipse, Line
-from kivy.app import App
+#from kivy.app import App
+#from kivy.uix.floatlayout import FloatLayout
+#from kivy.uix.boxlayout import BoxLayout
+#from kivy.lang import Builder
+#from random import random
+#from kivy.uix.widget import Widget
+#from kivy.uix.button import Button
+#from kivy.graphics import Color, Ellipse, Line
+#from kivy.app import App
 
 with open("/home/pi/Picture-Yo-self/code/pictures/picName.txt") as file:	# Use file to refer to the file object
     picname = file.read()
