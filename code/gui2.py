@@ -9,50 +9,22 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 
 
-#:kivy 1.0
-#:import kivy kivy
-#:import win kivy.core.window
-
-root = Builder.load_string('''
-FloatLayout:
+Builder.load_string('''
+<CustomLayout>
     canvas.before:
         Color:
-            rgb: 1, 1, 1
-        Rectangle:
-            source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
+            rgba: 0, 1, 0, 1
+        Rectangle: 
+            pos: self.pos
             size: self.size
-            
+<RootWidget>
+    CustomLayout:
+        AsyncImage:
+	    source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
 ''')
 
-# Builder.load_string('''
-#<CustomLayout>
-#    canvas.before:
-#        Color:
-#            rgba: 0, 1, 0, 1
-#        Rectangle: 
-#            pos: self.pos
-#            size: self.size
-#<RootWidget>
-#    CustomLayout:
-#        AsyncImage:
-#	    source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
-#''')
 
-class RootWidget(BoxLayout):
-    pass
-
-class CustomLayout(FloatLayout):
-    pass
-
-class MainApp(App):
-
-    def build(self):
-        return RootWidget()
-
-if __name__ == '__main__':
-    MainApp().run()
-
-''' class MyPaintWidget(Widget):
+class MyPaintWidget(Widget):
 	
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
@@ -86,4 +58,3 @@ class MyPaintApp(App):
 
 if __name__ == '__main__':
 	MyPaintApp().run()
-'''
