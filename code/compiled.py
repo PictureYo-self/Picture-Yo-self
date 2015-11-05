@@ -9,16 +9,11 @@ from kivy.graphics import Color, Ellipse, Line
 from kivy.app import App
 
 Builder.load_string('''
-#<CustomLayout>
-#    canvas.before:
-#        Color:
-#            rgba: 0, 1, 0, 1
-#        Rectangle:
-#            pos: self.pos
-#            size: self.size
 <RootWidget>
     AsyncImage:
         source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
+    	pos: self.pos
+    	size: self.size
 ''')
 
 class MyPaintWidget(Widget):
