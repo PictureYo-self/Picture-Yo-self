@@ -9,16 +9,34 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 
 Builder.load_string('''
-<GridLayout>
-  canvas.before:
-    BorderImage:
-      border: 10, 10, 10, 10
-      source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
-      pos: self.pos
-      size: self.size
+<CustomLayout>
+	canvas.before:
+  		Color:
+    			rgba: 0, 1, 0, 1
+    	Rectangle: 
+	    	pos: self.pos
+	    	size: self.size
+<RootWidget>
+	CustomLayout:
+		AsyncImage:
+			source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
 ''')
-      
-class MyPaintWidget(Widget):
+
+class RootWidget(BoxLayout):
+    pass
+
+class CustomLayout(FloatLayout):
+    pass
+
+class MainApp(App):
+
+    def build(self):
+        return RootWidget()
+
+if __name__ == '__main__':
+    MainApp().run()
+
+''' class MyPaintWidget(Widget):
 	
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
@@ -52,3 +70,4 @@ class MyPaintApp(App):
 
 if __name__ == '__main__':
 	MyPaintApp().run()
+'''
