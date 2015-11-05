@@ -10,14 +10,14 @@ from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.app import App
 
-f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
-global picname 
-picname = f.read()
-print picname
-f.close()
-pic1 = '\'' + picname + '\''
+#f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
+#global picname 
+#picname = f.read()
+#print picname
+#f.close()
+#pic1 = '\'' + picname + '\''
 
-print pic1
+#print pic1
 
 Builder.load_string('''
 <CustomLayout>
