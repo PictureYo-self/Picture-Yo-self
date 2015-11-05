@@ -65,9 +65,8 @@ class MainApp(App):
 		parent.add_widget(savebtn)
 		def save_pic(obj):
 		  root.export_to_png(email)
-		  sys.exit()
+		  app.Exit()
 		savebtn.bind(on_release=save_pic)
-	  
 		c.add_widget(self.im) 
 		root.add_widget(c)
 		root.add_widget(parent)
