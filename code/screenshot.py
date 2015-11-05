@@ -12,10 +12,12 @@ from kivy.uix.image import Image
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 global picname 
 picname = f.read()
-print picname
 f.close()
-global pic1
-pic1 = '\'' + picname + '\''
+
+f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','r')
+email = f.read()
+f.close()
+email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
@@ -61,7 +63,7 @@ class MainApp(App):
 		savebtn = Button(text='Save')
 		parent.add_widget(savebtn)
 		def save_pic(obj):
-		  root.export_to_png('a.png')
+		  root.export_to_png(email)
 		savebtn.bind(on_release=save_pic)
 	  
 		c.add_widget(self.im) 
