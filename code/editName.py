@@ -4,6 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 from random import random
 from kivy.uix.widget import Widget
+from kivy.graphics import Color, Rectangle
 from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.uix.image import Image
