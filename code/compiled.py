@@ -14,12 +14,12 @@ from kivy.app import App
 
 
 Builder.load_string('''
+f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
+picname = f.read()
+print picname
+f.close()
 <RootWidget>
     AsyncImage:
-        f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
-	picname = f.read()
-	print picname
-	f.close()
 	source: picname
     	pos: self.pos
     	size: self.size
