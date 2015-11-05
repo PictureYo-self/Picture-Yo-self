@@ -10,16 +10,17 @@ from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.app import App
 
-f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
-picname = f.read()
-print picname
-f.close()
+
 
 
 Builder.load_string('''
 <RootWidget>
     AsyncImage:
-        source: picname
+        f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
+	picname = f.read()
+	print picname
+	f.close()
+	source: picname
     	pos: self.pos
     	size: self.size
 ''')
