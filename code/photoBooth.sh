@@ -4,7 +4,8 @@ python capture.py
 filename=`cat ./pictures/picName.txt`
 netid=`cat ./pictures/email.txt`
 python compiled.py
-fbi $filename
+
+python working.py
 
 email1=$netid"@rice.edu"
 name=`finger $email1 | grep "name" | awk '{print $3}'`
