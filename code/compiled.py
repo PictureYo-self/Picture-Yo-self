@@ -22,7 +22,7 @@ print pic1
 Builder.load_string('''
 <RootWidget>
     AsyncImage:
-	source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
+	source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
     	pos: self.pos
     	size: self.size
 ''')
