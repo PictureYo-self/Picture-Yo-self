@@ -12,6 +12,7 @@ Builder.load_string('''
 <RootWidget>
     AsyncImage:
         source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
+    FloatLayout:
     	pos: self.pos
     	size: self.size
 ''')
@@ -22,7 +23,6 @@ class MyPaintWidget(Widget):
 		with self.canvas:
 			Color(*color, mode='hsv')
 			d = 30.
-			#Ellipse(pos=(touch.x - d / 2, touch.y - d / 2), size=(d, d))
 			touch.ud['line'] = Line(points=(touch.x, touch.y))
 
 	def on_touch_move(self, touch):
@@ -32,14 +32,14 @@ class MainApp(App):
 	def build(self):
 		parent = Widget()
 		wid = RootWidget()
-		#parent.add_widget(wid)
+		parent.add_widget(wid)
 		painter = MyPaintWidget()
-		#clearbtn = Button(text='Clear')
+		clearbtn = Button(text='Clear')
 		parent.add_widget(painter)
-		#parent.add_widget(clearbtn)
-		#def clear_canvas(obj):
-		#	painter.canvas.clear()
-		#clearbtn.bind(on_release=clear_canvas)
+		parent.add_widget(clearbtn)
+		def clear_canvas(obj):
+			painter.canvas.clear()
+		clearbtn.bind(on_release=clear_canvas)
 		wid.add_widget(parent)
 		return wid
 		
