@@ -37,13 +37,12 @@ class MyPaintWidget(Widget):
 		
 class MainApp(App):
 	def build(self):
-	    return RootWidget()
+		return RootWidget()
 		parent = Widget()
 		painter = MyPaintWidget()
 		clearbtn = Button(text='Clear')
 		parent.add_widget(painter)
 		parent.add_widget(clearbtn)
-
 		def clear_canvas(obj):
 			painter.canvas.clear()
 		clearbtn.bind(on_release=clear_canvas)
