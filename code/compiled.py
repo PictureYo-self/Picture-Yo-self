@@ -25,7 +25,7 @@ Builder.load_string('''
     	pos: self.pos
     	size: self.size
 '''.format(picname))
-'''
+
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
@@ -61,4 +61,4 @@ class CustomLayout(FloatLayout):
 
 if __name__ == '__main__':
     MainApp().run()
-'''
+
