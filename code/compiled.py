@@ -21,10 +21,10 @@ pic1 = '\'' + picname + '\''
 Builder.load_string('''
 <RootWidget>
     AsyncImage:
-        source: picname
+        source: {0}
     	pos: self.pos
     	size: self.size
-''')
+'''.format(picname))
 '''
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
