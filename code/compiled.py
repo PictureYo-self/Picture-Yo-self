@@ -20,7 +20,7 @@ pic1 = '\'' + picname + '\''
 Builder.load_string('''
 <RootWidget>
     AsyncImage:
-        source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
+        source: pic1
     	pos: self.pos
     	size: self.size
 ''')
