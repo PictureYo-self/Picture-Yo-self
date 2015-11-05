@@ -15,11 +15,14 @@ global picname
 picname = f.read()
 print picname
 f.close()
+pic1 = '\'' + picname + '\''
+
+print pic1
 
 Builder.load_string('''
 <RootWidget>
     AsyncImage:
-	source: 'picname'
+	source: pic1
     	pos: self.pos
     	size: self.size
 ''')
