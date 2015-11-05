@@ -2,10 +2,12 @@
 
 python capture.py 
 filename=`cat ./pictures/picName.txt`
+
 netid=`cat ./pictures/email.txt`
-python compiled.py
 
 python working.py
+
+filename="/home/pi/Picture-Yo-self/code/pictures/"$netid".png"
 
 email1=$netid"@rice.edu"
 name=`finger $email1 | grep "name" | awk '{print $3}'`
