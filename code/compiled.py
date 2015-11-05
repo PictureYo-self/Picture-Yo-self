@@ -18,14 +18,14 @@ f.close()
 #with open('/home/pi/Picture-Yo-self/code/pictures/picName.txt', 'r') as f:
 #	picname = f.read()
 #>>> f.closed
-
-Builder.load_string('''
-<RootWidget>
-    AsyncImage:
-        source: picname
-    	pos: self.pos
-    	size: self.size
-''')
+'''
+#Builder.load_string('''
+#<RootWidget>
+#    AsyncImage:
+#        source: picname
+#    	pos: self.pos
+#    	size: self.size
+#''')
 
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
@@ -60,3 +60,4 @@ class CustomLayout(FloatLayout):
 
 if __name__ == '__main__':
     MainApp().run()
+'''
