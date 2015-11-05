@@ -10,23 +10,20 @@ from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.app import App
 
-#with open("/home/pi/Picture-Yo-self/code/pictures/picName.txt") as file:	# Use file to refer to the file object
-#    picname = file.read()
-    #do something with data
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 picname = f.read()
 print picname
 f.close()
 
 
-#Builder.load_string('''
-#<RootWidget>
-#    AsyncImage:
-#        source: picname
-#    	pos: self.pos
-#    	size: self.size
-#''')
-'''
+Builder.load_string('''
+<RootWidget>
+    AsyncImage:
+        source: picname
+    	pos: self.pos
+    	size: self.size
+''')
+
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
@@ -60,4 +57,3 @@ class CustomLayout(FloatLayout):
 
 if __name__ == '__main__':
     MainApp().run()
-'''
