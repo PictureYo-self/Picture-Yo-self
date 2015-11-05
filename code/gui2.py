@@ -16,10 +16,10 @@ Builder.load_string('''
         Rectangle: 
             pos: self.pos
             size: self.size
-<RootWidget>
-    CustomLayout:
-        AsyncImage:
-	    source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
+#<RootWidget>
+#    CustomLayout:
+#        AsyncImage:
+#	    source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
 ''')
 
 class RootWidget(BoxLayout):
