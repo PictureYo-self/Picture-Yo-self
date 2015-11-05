@@ -18,14 +18,14 @@ pic1 = '\'' + picname + '\''
 
 #print pic1
 
-Builder.load_string('''
-<RootWidget>
-    AsyncImage:
-        source: pic1
-    	pos: self.pos
-    	size: self.size
-''')
-
+#Builder.load_string('''
+#<RootWidget>
+#    AsyncImage:
+#        source: pic1
+#    	pos: self.pos
+#    	size: self.size
+#''')
+'''
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
@@ -61,3 +61,4 @@ class CustomLayout(FloatLayout):
 
 if __name__ == '__main__':
     MainApp().run()
+'''
