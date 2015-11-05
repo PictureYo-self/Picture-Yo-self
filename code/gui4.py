@@ -14,18 +14,18 @@ Builder.load_string('''
             size: self.size
 
 <RootWidget>
-    CustomLayout:
-        AsyncImage:
-            source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
-            size_hint: 1, .5
-            pos_hint: {'center_x':.5, 'center_y': .5}
+    #CustomLayout:
+    #    AsyncImage:
+    #        source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
+    #        size_hint: 1, .5
+    #        pos_hint: {'center_x':.5, 'center_y': .5}
     AsyncImage:
         source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
-    CustomLayout
-        AsyncImage:
-            source: '/home/pi/Picture-Yo-self/code/pictures/jt18.jpg'
-            size_hint: 1, .5
-            pos_hint: {'center_x':.5, 'center_y': .5}
+    #CustomLayout
+    #    AsyncImage:
+    #        source: '/home/pi/Picture-Yo-self/code/pictures/jt18.jpg'
+    #        size_hint: 1, .5
+    #        pos_hint: {'center_x':.5, 'center_y': .5}
 ''')
 
 class RootWidget(BoxLayout):
