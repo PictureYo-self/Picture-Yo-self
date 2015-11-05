@@ -25,12 +25,12 @@ root = Builder.load_string('''
         Image:
             size_hint: None, None
             size: 24, 24
-            source: 'data/logo/kivy-icon-24.png'
-        Label:
-            height: 24
-            text_size: self.width, None
-            color: (1, 1, 1, .8)
-            text: 'Kivy %s - Pictures' % kivy.__version__
+            source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
+#        Label:
+#            height: 24
+#            text_size: self.width, None
+#            color: (1, 1, 1, .8)
+#            text: 'Kivy %s - Pictures' % kivy.__version__
 ''')
 
 
