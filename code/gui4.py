@@ -36,7 +36,6 @@ class MyPaintWidget(Widget):
 		touch.ud['line'].points += [touch.x, touch.y]
 		
 class MainApp(App):
-
 	def build(self):
 	    return RootWidget()
 		parent = Widget()
