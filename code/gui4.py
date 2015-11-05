@@ -17,14 +17,12 @@ Builder.load_string('''
             pos: self.pos
             size: self.size
 
-#<RootWidget>
-#    AsyncImage:
-#        source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
+<RootWidget>
+    AsyncImage:
+        source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
 ''')
 
 class MyPaintWidget(Widget):
-	AsyncImage:
-        	source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
 		with self.canvas:
