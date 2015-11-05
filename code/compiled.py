@@ -1,3 +1,5 @@
+#! /usr/bin/python
+
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
@@ -8,10 +10,13 @@ from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.app import App
 
+f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','w')
+picname = f.read()
+
 Builder.load_string('''
 <RootWidget>
     AsyncImage:
-        source: '/home/pi/Picture-Yo-self/code/pictures/ss67.jpg'
+        source: picname
     	pos: self.pos
     	size: self.size
 ''')
@@ -21,8 +26,6 @@ class MyPaintWidget(Widget):
 		color = (random(), 1, 1)
 		with self.canvas:
 			Color(*color, mode='hsv')
-			d = 30.
-			#Ellipse(pos=(touch.x - d / 2, touch.y - d / 2), size=(d, d))
 			touch.ud['line'] = Line(points=(touch.x, touch.y))
 
 	def on_touch_move(self, touch):
