@@ -20,13 +20,6 @@ from kivy.app import App
 #print pic1
 
 Builder.load_string('''
-<CustomLayout>
-    canvas.before:
-        Color:
-            rgba: 0, 1, 0, 1
-        Rectangle:
-            pos: self.pos
-            size: self.size
 <RootWidget>
     AsyncImage:
 	source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
@@ -48,7 +41,6 @@ class MainApp(App):
 	def build(self):
 		parent = Widget()
 		wid = RootWidget()
-		parent.add_widget(wid)
 		painter = MyPaintWidget()
 		clearbtn = Button(text='Clear')
 		parent.add_widget(painter)
