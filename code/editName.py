@@ -38,10 +38,10 @@ class MyPaintWidget(Widget):
 		touch.ud['line'].points += [touch.x, touch.y]
 		
 class MainApp(App):
-  im=Image(source='/home/pi/Picture-Yo-self/code/pictures/ss67.jpg')
+	im=Image(source='/home/pi/Picture-Yo-self/code/pictures/ss67.jpg')
 	def build(self):
-	  root = BoxLayout(orientation='vertical')
-	  c = Imglayout()
+		root = BoxLayout(orientation='vertical')
+		c = Imglayout()
 		parent = Widget()
 		#wid = RootWidget()
 		#parent.add_widget(wid)
