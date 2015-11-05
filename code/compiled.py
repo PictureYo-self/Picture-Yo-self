@@ -16,7 +16,7 @@ Builder.load_string('''
         Rectangle:
             pos: self.pos
             size: self.size
-class MyPaintWidget(Widget):
+<MyPaintWidget(Widget)>
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
 		with self.canvas:
