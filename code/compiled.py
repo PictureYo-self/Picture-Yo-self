@@ -19,7 +19,7 @@ f.close()
 Builder.load_string('''
 <RootWidget>
     AsyncImage:
-	source: picname
+	source: 'picname'
     	pos: self.pos
     	size: self.size
 ''')
