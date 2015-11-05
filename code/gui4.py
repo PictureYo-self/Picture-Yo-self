@@ -37,7 +37,6 @@ class MyPaintWidget(Widget):
 		
 class MainApp(App):
 	def build(self):
-		return RootWidget()
 		parent = Widget()
 		painter = MyPaintWidget()
 		clearbtn = Button(text='Clear')
@@ -48,6 +47,7 @@ class MainApp(App):
 		clearbtn.bind(on_release=clear_canvas)
 
 		return parent
+		return RootWidget()
 
 class RootWidget(BoxLayout):
     pass
