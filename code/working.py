@@ -12,10 +12,7 @@ from kivy.uix.image import Image
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 global picname 
 picname = f.read()
-print picname
 f.close()
-global pic1
-pic1 = '\'' + picname + '\''
 
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
