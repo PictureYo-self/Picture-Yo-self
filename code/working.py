@@ -52,7 +52,7 @@ class MainApp(App):
 			painter.canvas.clear()
 		clearbtn.bind(on_release=clear_canvas)
 		root.add_widget(c)
-		c.add_widget(self.im)
+		root.add_widget(self.im)
 		root.add_widget(parent)
 		return root
 		
