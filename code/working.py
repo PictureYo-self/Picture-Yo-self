@@ -14,12 +14,17 @@ global picname
 picname = f.read()
 f.close()
 
+f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','r')
+email = f.read()
+f.close()
+email = '/home/pi/Picture-Yo-self/code/pictures' + email + '.png'
+
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
 		with self.canvas:
 			Color(*color, mode='hsv')
-			touch.ud['line'] = Line(points=(touch.x, touch.y), width=5)
+			touch.ud['line'] = Line(points=(touch.x, touch.y), width=3)
 
 	def on_touch_move(self, touch):
 		touch.ud['line'].points += [touch.x, touch.y]
@@ -45,6 +50,8 @@ class MainApp(App):
 		c = Imglayout()
 		parent = BoxLayout(orientation='horizontal')
 		painter = MyPaintWidget()
+
+		# create clear button and save button
 		clearbtn = Button(text='Clear', size_hint=(1,5))
 		savebtn = Button(text='Save', size_hint=(1,5))
 		root.add_widget(self.im)
@@ -54,7 +61,12 @@ class MainApp(App):
 		def clear_canvas(obj):
 			painter.canvas.clear()
 		clearbtn.bind(on_release=clear_canvas)
+		#def save_pic(obj):
+			#root.remove_widget(parent)
+			#root.export_to_png(email)
+		#savebtn.bind(on_release=save_pic)
 		root.add_widget(c)
+		#root.add_widget(painter)
 		root.add_widget(parent)
 		return root
 		

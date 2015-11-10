@@ -45,16 +45,15 @@ class Imglayout(FloatLayout):
         self.rect.pos=instance.pos
 		
 class MainApp(App):
-	im=Image(source=picname)
+	im=Image(source=picname, size_hint=(1,50))
 	def build(self):
 		root = BoxLayout(orientation='vertical')
 		c = Imglayout()
-		parent = Widget()
+		parent = BoxLayout(orientation='horizontal')
 		painter = MyPaintWidget()
 		
 		# create clear button
 		clearbtn = Button(text='Clear')
-		parent.add_widget(painter)
 		parent.add_widget(clearbtn)
 		def clear_canvas(obj):
 			painter.canvas.clear()
@@ -67,7 +66,8 @@ class MainApp(App):
 		  root.export_to_png(email)
 		  app.Exit()
 		savebtn.bind(on_release=save_pic)
-		c.add_widget(self.im) 
+		root.add_widget(self.im) 
+		root.add_widget(painter)
 		root.add_widget(c)
 		root.add_widget(parent)
 		
