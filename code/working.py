@@ -19,7 +19,7 @@ class MyPaintWidget(Widget):
 		color = (random(), 1, 1)
 		with self.canvas:
 			Color(*color, mode='hsv')
-			touch.ud['line'] = Line(points=(touch.x, touch.y))
+			touch.ud['line'] = Line(points=(touch.x, touch.y), width=5)
 
 	def on_touch_move(self, touch):
 		touch.ud['line'].points += [touch.x, touch.y]
