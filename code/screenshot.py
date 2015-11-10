@@ -25,7 +25,7 @@ class MyPaintWidget(Widget):
 		color = (random(), 1, 1)
 		with self.canvas:
 			Color(*color, mode='hsv')
-			touch.ud['line'] = Line(points=(touch.x, touch.y))
+			touch.ud['line'] = Line(points=(touch.x, touch.y), width=3)
 
 	def on_touch_move(self, touch):
 		touch.ud['line'].points += [touch.x, touch.y]
@@ -53,16 +53,17 @@ class MainApp(App):
 		painter = MyPaintWidget()
 		
 		# create clear button
-		clearbtn = Button(text='Clear')
+		clearbtn = Button(text='Clear', size_hint=(1,5))
 		parent.add_widget(clearbtn)
 		def clear_canvas(obj):
 			painter.canvas.clear()
 		clearbtn.bind(on_release=clear_canvas)
 		
 		# create save button
-		savebtn = Button(text='Save')
+		savebtn = Button(text='Save', size_hint=(1,5))
 		parent.add_widget(savebtn)
 		def save_pic(obj):
+		  root.remove_widget(parent)
 		  root.export_to_png(email)
 		  app.Exit()
 		savebtn.bind(on_release=save_pic)
