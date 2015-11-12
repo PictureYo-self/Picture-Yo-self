@@ -22,9 +22,8 @@ email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
-		color = (random(), 1, 1)
 		with self.canvas:
-			Color(*color, mode='hsv')
+			Color(1,0,1)
 			touch.ud['line'] = Line(points=(touch.x, touch.y), width=3)
 
 	def on_touch_move(self, touch):
