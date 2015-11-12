@@ -8,7 +8,6 @@ from kivy.graphics import Color, Rectangle
 from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.uix.image import Image
-import sys
 
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 global picname 
@@ -18,7 +17,7 @@ f.close()
 f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','r')
 email = f.read()
 f.close()
-email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
+email = '/home/pi/Picture-Yo-self/code/pictures' + email + '.png'
 
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
@@ -51,27 +50,21 @@ class MainApp(App):
 		c = Imglayout()
 		parent = BoxLayout(orientation='horizontal')
 		painter = MyPaintWidget()
-		
-		# create clear button
 		clearbtn = Button(text='Clear', size_hint=(1,5))
+		savebtn = Button(text='Save', size_hint=(1,5))
+		root.add_widget(self.im)
 		parent.add_widget(clearbtn)
+		parent.add_widget(savebtn)
+		root.add_widget(painter)
 		def clear_canvas(obj):
 			painter.canvas.clear()
 		clearbtn.bind(on_release=clear_canvas)
-		
-		# create save button
-		savebtn = Button(text='Save and send to email', size_hint=(1,5))
-		parent.add_widget(savebtn)
 		def save_pic(obj):
-		  root.remove_widget(parent)
-		  root.export_to_png(email)
-		  app.Exit()
+			root.export_to_png(email)
 		savebtn.bind(on_release=save_pic)
-		root.add_widget(self.im) 
-		root.add_widget(painter)
-		root.add_widget(c)
+
+				root.add_widget(c)
 		root.add_widget(parent)
-		
 		return root
 		
 class RootWidget(BoxLayout):

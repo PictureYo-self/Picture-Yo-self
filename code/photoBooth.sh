@@ -5,7 +5,7 @@ filename=`cat ./pictures/picName.txt`
 
 netid=`cat ./pictures/email.txt`
 
-python working.py
+python guiFinal.py
 
 filename="/home/pi/Picture-Yo-self/code/pictures/"$netid".png"
 
