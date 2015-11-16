@@ -1,4 +1,4 @@
-// screen manager imported from http://kivy.org/docs/api-kivy.uix.screenmanager.html
+#// screen manager imported from http://kivy.org/docs/api-kivy.uix.screenmanager.html
 
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
