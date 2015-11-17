@@ -20,3 +20,5 @@ with picamera.PiCamera() as camera:
 	time.sleep(2)
 	camera.capture(name1)
 #cv2.imshow('image',name1)
+
+#execfile("screenManager.py")
