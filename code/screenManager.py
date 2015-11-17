@@ -34,17 +34,17 @@ class MyPaintWidget(Widget):
 		
 class Imglayout(FloatLayout):
 
-    def __init__(self,**args):
-        super(Imglayout,self).__init__(**args)
+	def __init__(self,**args):
+        	super(Imglayout,self).__init__(**args)
 
-        with self.canvas.before:
-            Color(0,0,0,0)
-            self.rect=Rectangle(size=self.size,pos=self.pos)
+	        with self.canvas.before:
+        		Color(0,0,0,0)
+        		self.rect=Rectangle(size=self.size,pos=self.pos)
 
-        self.bind(size=self.updates,pos=self.updates)
-    def updates(self,instance,value):
-        self.rect.size=instance.size
-        self.rect.pos=instance.pos
+       		self.bind(size=self.updates,pos=self.updates)
+ 	def updates(self,instance,value):
+        	self.rect.size=instance.size
+        	self.rect.pos=instance.pos
 		
 class MainApp(App):
 	im=Image(source=picname, size_hint=(1,50))
@@ -60,6 +60,13 @@ class MainApp(App):
 		def clear_canvas(obj):
 			painter.canvas.clear()
 		clearbtn.bind(on_release=clear_canvas)
+
+		# create retake photo button
+		retakebtn = Button(text='Retake Photo', size_hint=(1,5))
+		parent.add_widget(retakebtn)
+		def retake_pic(obj):
+			execfile("momocapture.py")
+		retakebtn.bind(on_release=retake_pic)
 		
 		# create save button
 		savebtn = Button(text='Save and send to email', size_hint=(1,5))
@@ -67,15 +74,17 @@ class MainApp(App):
 		def save_pic(obj):
 		  root.remove_widget(parent)
 		  root.export_to_png(email)
-		  exit()
+		  App.on_stop()
 		savebtn.bind(on_release=save_pic)
+
 		root.add_widget(self.im) 
 		root.add_widget(painter)
 		root.add_widget(c)
 		root.add_widget(parent)
-		
+
 		return root
-		
+
+
 class RootWidget(BoxLayout):
     pass
 
