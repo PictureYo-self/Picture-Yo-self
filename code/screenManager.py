@@ -18,6 +18,10 @@ f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 picname = f.read()
 f.close()
 
+f = open('/home/pi/Picture-Yo-self/code/pictures/picName2.txt','r')
+picname2 = f.read()
+f.close()
+
 f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','r')
 email = f.read()
 f.close()
@@ -68,6 +72,7 @@ class MainApp(App):
 			root.remove_widget(parent)
 			root.export_to_png(email)
 			os.remove(picname)
+			os.remove(picname2)
 			exit()
 		savebtn.bind(on_release=save_pic)
 
