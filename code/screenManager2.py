@@ -36,7 +36,8 @@ painter = MyPaintWidget()
 			on_press: root.manager.current = 'settings'
 		Button:
 			text: 'Clear'
-		MyPaintWidget()
+		custom:
+			MyPaintWidget()
 <Screen2>:
 	BoxLayout:
 		Button:
