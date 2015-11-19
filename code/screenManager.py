@@ -72,7 +72,7 @@ class MainApp(App):
 			root.remove_widget(parent)
 			root.export_to_png(email)
 			os.remove(picname)
-			os.remove(picname2)
+			#os.remove(picname2)
 			exit()
 		savebtn.bind(on_release=save_pic)
 
