@@ -11,15 +11,33 @@ from kivy.uix.image import Image
 import sys
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+# get picture file name
+f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
+picname = f.read()
+f.close()
+
+f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','r')
+email = f.read()
+f.close()
+email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
+
+
 Builder.load_string("""
-<MenuScreen>:
+painter = MyPaintWidget()
+<Screen1>:
 	BoxLayout:
 		Button:
+			text: 'Clear'
+			size_hint: (1,5)
+			on_press: painter.canvas.clear()
+		Button:
 			text: 'Goto settings'
+			size_hint: (1,5)
 			on_press: root.manager.current = 'settings'
 		Button:
-			text: 'Quit'
-<SettingsScreen>:
+			text: 'Clear'
+		MyPaintWidget()
+<Screen2>:
 	BoxLayout:
 		Button:
 			text: 'My settings button'
@@ -27,6 +45,17 @@ Builder.load_string("""
 			text: 'Back to menu'
 			on_press: root.manager.current = 'menu'
 """)
+
+# create class for painter so that it can draw in different colors based on touch 
+class MyPaintWidget(Widget):
+	def on_touch_down(self, touch):
+		color = (random(), 1, 1)
+		with self.canvas:
+			Color(*color, mode='hsv')
+			touch.ud['line'] = Line(points=(touch.x, touch.y), width=3)
+
+	def on_touch_move(self, touch):
+		touch.ud['line'].points += [touch.x, touch.y]
 
 # Declare both screens
 class MenuScreen(Screen):
@@ -39,23 +68,16 @@ sm = ScreenManager()
 sm.add_widget(MenuScreen(name='menu'))
 sm.add_widget(SettingsScreen(name='settings'))
 
-class TestApp(App):
+# build main app so it will run
+class MainApp(App):
 	def build(self):
 		return sm
+		
 if __name__ == '__main__':
-	TestApp().run()
+	MainApp().run()
 
 
 '''
-f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
-picname = f.read()
-f.close()
-
-f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','r')
-email = f.read()
-f.close()
-email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
-
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
