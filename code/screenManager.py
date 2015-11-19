@@ -1,5 +1,6 @@
 #// screen manager imported from http://kivy.org/docs/api-kivy.uix.screenmanager.html
 
+from kivy.properties import BooleanProperty
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
@@ -18,6 +19,8 @@ f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 picname = f.read()
 f.close()
 
+print picname
+
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName2.txt','r')
 picname2 = f.read()
 f.close()
@@ -29,8 +32,14 @@ email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName2.txt','w')
 f.write(email)
+f.close()
 
-reload(sys)
+f = open('/home/pi/Picture-Yo-self/code/college.txt','r')
+college = f.read()
+f.close()
+
+crest='/home/pi/Picture-Yo-self/code/pictures/' + college
+print crest
 
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
@@ -43,7 +52,9 @@ class MyPaintWidget(Widget):
 		touch.ud['line'].points += [touch.x, touch.y]
 		
 class MainApp(App):
-	im=Image(source=picname, size_hint=(1,50))
+	im1=Image(source=picname, size_hint=(1,50))
+#	allow_stretch = BooleanProperty(True)
+#	im2=Image(source='/home/pi/Picture-Yo-self/code/pictures/Will.jpg') #,size=(10,5000))
 	def build(self):
 		root = BoxLayout(orientation='vertical')
 		parent = BoxLayout(orientation='horizontal')
@@ -77,7 +88,8 @@ class MainApp(App):
 		savebtn.bind(on_release=save_pic)
 
 		
-		root.add_widget(self.im) 
+		root.add_widget(self.im1) 
+#		root.add_widget(self.im2)
 		root.add_widget(painter)
 		root.add_widget(parent)		
 		return root
@@ -87,3 +99,4 @@ class RootWidget(BoxLayout):
 
 if __name__ == '__main__':
     MainApp().run()
+
