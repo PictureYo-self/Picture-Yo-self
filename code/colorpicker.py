@@ -89,6 +89,7 @@ class MainApp(App):
 		#painter = MyPaintWidget()
 		painter = Ex40()
 		
+		'''
 		# create clear button
 		clearbtn = Button(text='Clear', size_hint=(1,5))
 		parent.add_widget(clearbtn)
@@ -115,7 +116,7 @@ class MainApp(App):
 			#os.remove(picname2)
 			exit()
 		savebtn.bind(on_release=save_pic)
-
+		'''
 		
 		root.add_widget(self.im1) 
 #		root.add_widget(self.im2)
