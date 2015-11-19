@@ -30,25 +30,10 @@ class MyPaintWidget(Widget):
 	def on_touch_move(self, touch):
 		touch.ud['line'].points += [touch.x, touch.y]
 		
-class Imglayout(FloatLayout):
-
-    def __init__(self,**args):
-        super(Imglayout,self).__init__(**args)
-
-        with self.canvas.before:
-            Color(0,0,0,0)
-            self.rect=Rectangle(size=self.size,pos=self.pos)
-
-        self.bind(size=self.updates,pos=self.updates)
-    def updates(self,instance,value):
-        self.rect.size=instance.size
-        self.rect.pos=instance.pos
-		
 class MainApp(App):
 	im=Image(source=picname, size_hint=(1,50))
 	def build(self):
 		root = BoxLayout(orientation='vertical')
-		c = Imglayout()
 		parent = BoxLayout(orientation='horizontal')
 		painter = MyPaintWidget()
 		
@@ -69,7 +54,6 @@ class MainApp(App):
 		savebtn.bind(on_release=save_pic)
 		root.add_widget(self.im) 
 		root.add_widget(painter)
-		root.add_widget(c)
 		root.add_widget(parent)
 		
 		return root
