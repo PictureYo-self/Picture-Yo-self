@@ -39,7 +39,6 @@ class MainApp(App):
 	im=Image(source=picname, size_hint=(1,50))
 	def build(self):
 		root = BoxLayout(orientation='vertical')
-		c = Imglayout()
 		parent = BoxLayout(orientation='horizontal')
 		painter = MyPaintWidget()
 		
@@ -73,7 +72,6 @@ class MainApp(App):
 		
 		root.add_widget(self.im) 
 		root.add_widget(painter)
-		root.add_widget(c)
 		root.add_widget(parent)
 		
 #		self.current_i = 0
