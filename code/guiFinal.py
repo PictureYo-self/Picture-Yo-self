@@ -61,8 +61,5 @@ class MainApp(App):
 class RootWidget(BoxLayout):
     pass
 
-class CustomLayout(FloatLayout):
-    pass
-
 if __name__ == '__main__':
     MainApp().run()
