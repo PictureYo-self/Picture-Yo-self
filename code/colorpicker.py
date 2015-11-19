@@ -14,7 +14,7 @@ from kivy.properties import ListProperty
 
 col=[0,0,1,1]
 
-f = open('/users/Samir/Documents/Rice/BIOE421/picName.txt','r')
+f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 global picname 
 picname = f.read()
 f.close()
