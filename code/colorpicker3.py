@@ -10,7 +10,7 @@ from kivy.graphics import Color, Ellipse, Line
 from kivy.uix.image import Image
 from kivy.uix.colorpicker import ColorPicker
 
-f = open('/users/Samir/Documents/Rice/BIOE421/picName.txt','r')
+f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 global picname 
 picname = f.read()
 f.close()
