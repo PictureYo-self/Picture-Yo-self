@@ -10,7 +10,6 @@ from kivy.graphics import Color, Rectangle
 from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.uix.image import Image
-#from kivy.core.image import Image
 import sys
 from kivy.clock import Clock
 
@@ -55,8 +54,6 @@ class MainApp(App):
 		def retake_pic(obj):
 			execfile("momocapture.py")
 			self.im.reload()
-			#canvas.ask_update()
-			#exit()
 		retakebtn.bind(on_release=retake_pic)
 		
 		# create save button
@@ -65,30 +62,15 @@ class MainApp(App):
 		def save_pic(obj):
 		  root.remove_widget(parent)
 		  root.export_to_png(email)
-		  App.on_stop()
+		  exit()
 		savebtn.bind(on_release=save_pic)
 
-#		self.im.reload()
 		
 		root.add_widget(self.im) 
 		root.add_widget(painter)
-		root.add_widget(parent)
-		
-#		self.current_i = 0
-#		Clock.schedule_interval(self.update, 1)
-		
+		root.add_widget(parent)		
 		return root
-	im.reload()
 	
-#	def update(self, *args):
-#		self.current_i += 1
-#		if self.current_i >=- 50:
-#			Clock.unschedule(self.update)
-#	im.reload()
-#	im.remove_from_cache()
-	#im=Image(source=picname, size_hint=(1,50))
-
-
 class RootWidget(BoxLayout):
     pass
 
