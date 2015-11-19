@@ -23,8 +23,6 @@ email = f.read()
 f.close()
 email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
-reload(sys)
-
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
@@ -50,6 +48,7 @@ class Imglayout(FloatLayout):
         	self.rect.pos=instance.pos
 		
 class MainApp(App):
+	global im
 	im=Image(source=picname, size_hint=(1,50))
 	def build(self):
 		root = BoxLayout(orientation='vertical')
@@ -86,16 +85,16 @@ class MainApp(App):
 		root.add_widget(c)
 		root.add_widget(parent)
 		
-#		self.current_i = 0
-#		Clock.schedule_interval(self.update, 1)
+		root.current_i = 0
+		Clock.schedule_interval(self.update, 1)
 		
 		return root
-	im.reload()
 	
-#	def update(self, *args):
-#		self.current_i += 1
-#		if self.current_i >=- 50:
-#			Clock.unschedule(self.update)
+	def update(self, *args):
+		im.reload()
+		root.current_i += 1
+		if self.current_i >=- 50:
+			Clock.unschedule(self.update)
 #	im.reload()
 #	im.remove_from_cache()
 	#im=Image(source=picname, size_hint=(1,50))

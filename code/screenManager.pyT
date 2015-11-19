@@ -12,7 +12,6 @@ from kivy.graphics import Color, Ellipse, Line
 from kivy.uix.image import Image
 #from kivy.core.image import Image
 import sys
-from kivy.clock import Clock
 
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 picname = f.read()
@@ -22,8 +21,6 @@ f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','r')
 email = f.read()
 f.close()
 email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
-
-reload(sys)
 
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
@@ -80,22 +77,13 @@ class MainApp(App):
 		  root.export_to_png(email)
 		  App.on_stop()
 		savebtn.bind(on_release=save_pic)
-
+		im.reload()
 		root.add_widget(self.im) 
 		root.add_widget(painter)
 		root.add_widget(c)
 		root.add_widget(parent)
-		
-#		self.current_i = 0
-#		Clock.schedule_interval(self.update, 1)
-		
+
 		return root
-	im.reload()
-	
-#	def update(self, *args):
-#		self.current_i += 1
-#		if self.current_i >=- 50:
-#			Clock.unschedule(self.update)
 #	im.reload()
 #	im.remove_from_cache()
 	#im=Image(source=picname, size_hint=(1,50))

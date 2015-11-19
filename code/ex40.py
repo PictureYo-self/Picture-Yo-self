@@ -1,4 +1,4 @@
-import kivy
+from kivy.uix.popup import Popup
 from kivy.uix.widget import Widget
 from kivy.uix.colorpicker import ColorPicker
 from kivy.app import App
