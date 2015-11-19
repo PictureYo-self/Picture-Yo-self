@@ -9,9 +9,45 @@ from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.uix.image import Image
 import sys
+from kivy.uix.screenmanager import ScreenManager, Screen
 
+Builder.load_string("""
+<MenuScreen>:
+	BoxLayout:
+		Button:
+			text: 'Goto settings'
+			on_press: root.manager.current = 'settings'
+		Button:
+			text: 'Quit'
+<SettingsScreen>:
+	BoxLayout:
+		Button:
+			text: 'My settings button'
+		Button:
+			text: 'Back to menu'
+			on_press: root.manager.current = 'menu'
+""")
+
+# Declare both screens
+class MenuScreen(Screen):
+	pass
+class SettingsScreen(Screen):
+	pass
+
+# create screen manager
+sm = ScreenManager()
+sm.add_widget(MenuScreen(name='menu'))
+sm.add_widget(SettingsScreen(name='settings'))
+
+class TestApp(App):
+	def build(self):
+		return sm
+if __name__ == '__main__':
+	TestApp().run()
+
+
+'''
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
-global picname 
 picname = f.read()
 f.close()
 
@@ -63,3 +99,4 @@ class RootWidget(BoxLayout):
 
 if __name__ == '__main__':
     MainApp().run()
+'''
