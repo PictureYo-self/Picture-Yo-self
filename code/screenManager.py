@@ -69,7 +69,7 @@ class MainApp(App):
 		parent.add_widget(retakebtn)
 		def retake_pic(obj):
 			execfile("momocapture.py")
-			im.reload()
+			self.im.reload()
 			#canvas.ask_update()
 			#exit()
 		retakebtn.bind(on_release=retake_pic)
@@ -83,6 +83,8 @@ class MainApp(App):
 		  App.on_stop()
 		savebtn.bind(on_release=save_pic)
 
+#		self.im.reload()
+		
 		root.add_widget(self.im) 
 		root.add_widget(painter)
 		root.add_widget(c)
