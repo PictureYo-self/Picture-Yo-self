@@ -54,6 +54,7 @@ class MainApp(App):
 		def retake_pic(obj):
 			execfile("momocapture.py")
 			self.im.reload()
+			painter.canvas.clear()
 		retakebtn.bind(on_release=retake_pic)
 		
 		# create save button
