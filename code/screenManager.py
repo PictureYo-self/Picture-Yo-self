@@ -23,6 +23,9 @@ email = f.read()
 f.close()
 email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
+f = open('/home/pi/Picture-Yo-self/code/pictures/picName2.txt','w')
+f.write(email)
+
 reload(sys)
 
 class MyPaintWidget(Widget):
@@ -62,10 +65,10 @@ class MainApp(App):
 		savebtn = Button(text='Save and send to email', size_hint=(1,5))
 		parent.add_widget(savebtn)
 		def save_pic(obj):
-		  root.remove_widget(parent)
-		  root.export_to_png(email)
-		  os.remove(picname)
-		  exit()
+			root.remove_widget(parent)
+			root.export_to_png(email)
+			os.remove(picname)
+			exit()
 		savebtn.bind(on_release=save_pic)
 
 		
