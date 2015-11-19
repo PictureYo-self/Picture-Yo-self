@@ -21,9 +21,10 @@ email = f.read()
 f.close()
 email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
+painter = MyPaintWidget()
 
 Builder.load_string("""
-painter = MyPaintWidget()
+
 <Screen1>:
 	BoxLayout:
 		Button:
@@ -36,7 +37,6 @@ painter = MyPaintWidget()
 			on_press: root.manager.current = 'settings'
 		Button:
 			text: 'Clear'
-		custom: painter
 <Screen2>:
 	BoxLayout:
 		Button:
@@ -66,6 +66,7 @@ class SettingsScreen(Screen):
 # create screen manager
 sm = ScreenManager()
 sm.add_widget(MenuScreen(name='menu'))
+menu.add_widget(painter)
 sm.add_widget(SettingsScreen(name='settings'))
 
 # build main app so it will run
