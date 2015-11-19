@@ -21,16 +21,15 @@ email = f.read()
 f.close()
 email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
-painter = MyPaintWidget()
 
 Builder.load_string("""
-
+#painter = MyPaintWidget()
 <Screen1>:
 	BoxLayout:
 		Button:
 			text: 'Clear'
 			size_hint: (1,5)
-			on_press: painter.canvas.clear()
+#			on_press: painter.canvas.clear()
 		Button:
 			text: 'Goto settings'
 			size_hint: (1,5)
@@ -57,17 +56,20 @@ class MyPaintWidget(Widget):
 	def on_touch_move(self, touch):
 		touch.ud['line'].points += [touch.x, touch.y]
 
+painter = MyPaintWidget()
+
 # Declare both screens
-class MenuScreen(Screen):
+class Screen1(Screen):
 	pass
-class SettingsScreen(Screen):
+class Screen2(Screen):
 	pass
 
 # create screen manager
+Screen1.add_widget(painter)
 sm = ScreenManager()
-sm.add_widget(MenuScreen(name='menu'))
-menu.add_widget(painter)
-sm.add_widget(SettingsScreen(name='settings'))
+sm.add_widget(Screen1(name='menu'))
+#sm.Screen1.add_widget(painter)
+sm.add_widget(Screen2(name='settings'))
 
 # build main app so it will run
 class MainApp(App):
