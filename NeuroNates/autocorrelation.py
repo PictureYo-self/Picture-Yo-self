@@ -1,11 +1,9 @@
 from __future__ import print_function
 import scipy
-import scipy.signal
+from scipy import signal
 import numpy
 import csv
 import sys
-
-
 
 
 def readData(fileName):
@@ -45,7 +43,7 @@ def seizure(data):
     
     for i in range(0, len(adata)-1):
         
-        maxIndices = scipy.signal.argrelmax(data[:,i])
+        maxIndices = signal.argrelmax(data[:,i])
         length = numpy.shape(maxIndices)[1]
         # only one peak, the signal is not periodic
         if (length < 2):

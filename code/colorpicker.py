@@ -17,6 +17,7 @@ from kivy.uix.image import Image
 import sys
 from kivy.clock import Clock
 
+
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 picname = f.read()
 f.close()
@@ -43,6 +44,8 @@ f.close()
 crest='/home/pi/Picture-Yo-self/code/pictures/' + college
 print crest
 
+
+
 col = [0,0,1,1]
 # define colorpicker classes
 class SelectedColorEllipse(Widget):
@@ -61,6 +64,7 @@ class Ex40(Widget):
 	def on_touch_down(self, touch):
         	if touch.x <100 and touch.y < 100:
             		return super(Ex40, self).on_touch_down(touch)
+			canvas.ask_update()
         	sce = SelectedColorEllipse()
         	sce.selected_color = self.selected_color
         	sce.center = touch.pos
@@ -79,13 +83,13 @@ class MyPaintWidget(Widget):
 		touch.ud['line'].points += [touch.x, touch.y]
 '''
 
-class MainApp(App):
-	im1=Image(source=picname, size_hint=(1,50))
+class Ex40App(App):
+#	im1=Image(source=picname, size_hint=(1,50))
 #	allow_stretch = BooleanProperty(True)
 #	im2=Image(source='/home/pi/Picture-Yo-self/code/pictures/Will.jpg') #,size=(10,5000))
 	def build(self):
 		root = BoxLayout(orientation='vertical')
-		parent = BoxLayout(orientation='horizontal')
+#		parent = BoxLayout(orientation='horizontal')
 		#painter = MyPaintWidget()
 		painter = Ex40()
 		
@@ -121,9 +125,11 @@ class MainApp(App):
 #		root.add_widget(self.im1) 
 #		root.add_widget(self.im2)
 		root.add_widget(painter)
-#		root.add_widget(parent)		
+#		root.add_widget(parent)
+		painter.canvas.clear()		
 		return root
-	
+#		return Ex40()
+		
 class RootWidget(BoxLayout):
     pass
 
