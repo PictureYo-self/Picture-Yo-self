@@ -71,9 +71,8 @@ class MainApp(App):
 		  exit()
 		savebtn.bind(on_release=save_pic)
 
-		parent.add_widget(crest.im)
+		parent.add_widget(self.crest)
 		root.add_widget(self.im)
-		root.add_widget(self.crest)
 		root.add_widget(painter)
 		root.add_widget(parent)		
 		return root
