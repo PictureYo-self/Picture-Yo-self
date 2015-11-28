@@ -22,6 +22,10 @@ email = f.read()
 f.close()
 email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
+f = open('/home/pi/Picture-Yo-self/code/pictures/college.txt','r')
+college = f.read()
+f.close()
+
 reload(sys)
 
 class MyPaintWidget(Widget):
@@ -36,6 +40,7 @@ class MyPaintWidget(Widget):
 		
 class MainApp(App):
 	im=Image(source=picname, size_hint=(1,50))
+	crest=Image(source=college)
 	def build(self):
 		root = BoxLayout(orientation='vertical')
 		parent = BoxLayout(orientation='horizontal')
@@ -67,7 +72,8 @@ class MainApp(App):
 		savebtn.bind(on_release=save_pic)
 
 		
-		root.add_widget(self.im) 
+		root.add_widget(self.im)
+		root.add_widget(self.crest)
 		root.add_widget(painter)
 		root.add_widget(parent)		
 		return root
