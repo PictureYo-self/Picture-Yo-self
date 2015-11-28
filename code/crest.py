@@ -40,7 +40,7 @@ class MyPaintWidget(Widget):
 		
 class MainApp(App):
 	im=Image(source=picname, size_hint=(1,50))
-	crest=Image(source=college)
+	crest=Image(source=college, size_hint=(1,5))
 	def build(self):
 		root = BoxLayout(orientation='vertical')
 		parent = BoxLayout(orientation='horizontal')
@@ -71,7 +71,7 @@ class MainApp(App):
 		  exit()
 		savebtn.bind(on_release=save_pic)
 
-		
+		parent.add_widget(crest.im)
 		root.add_widget(self.im)
 		root.add_widget(self.crest)
 		root.add_widget(painter)
