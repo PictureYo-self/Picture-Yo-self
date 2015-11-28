@@ -40,11 +40,12 @@ class MyPaintWidget(Widget):
 		
 class MainApp(App):
 	im=Image(source=picname, size_hint=(1,50))
-	crest=Image(source=college, size_hint=(1,5))
+	crest=Image(source=college, size_hint=(1,25))
 	def build(self):
 		root = BoxLayout(orientation='vertical')
 		parent = BoxLayout(orientation='horizontal')
 		painter = MyPaintWidget()
+		crestwid = BoxLayout(orientation='horizontal')
 		
 		# create clear button
 		clearbtn = Button(text='Clear', size_hint=(1,5))
@@ -71,10 +72,11 @@ class MainApp(App):
 		  exit()
 		savebtn.bind(on_release=save_pic)
 
-		parent.add_widget(self.crest)
+		crestwid.add_widget(self.crest)
 		root.add_widget(self.im)
 		root.add_widget(painter)
 		root.add_widget(parent)		
+		root.add_widget(crestwid)
 		return root
 	
 class RootWidget(BoxLayout):
