@@ -22,7 +22,7 @@ email = f.read()
 f.close()
 email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
-f = open('/home/pi/Picture-Yo-self/code/pictures/college.txt','r')
+f = open('/home/pi/Picture-Yo-self/code/college.txt','r')
 college = f.read()
 f.close()
 
