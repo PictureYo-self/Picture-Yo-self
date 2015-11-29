@@ -8,49 +8,53 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 
-root = Builder.load_string('''
 
-  canvas.before:
-    Rectangle:
-      pos: self.pos
-      size: self.size
-      source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
-
-#  FloatLayout:
-#    canvas.before:
-#      Color:
-#        rgb: 1, 1, 1
-#          Rectangle:
-#              source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
-#              size: self.size
-#  BoxLayout:
-#        padding: 10
-#        spacing: 10
-#        size_hint: 1, None
-#        pos_hint: {'top': 1}
-#        height: 44
-#        Image:
-#            size_hint: None, None
-#            size: 24, 24
-#            source: '/home/pi/Picture-Yo-self/code/pictures/ci3.jpg'
-#  #        Label:
-  #            height: 24
-  #            text_size: self.width, None
-  #            color: (1, 1, 1, .8)
-  #            text: 'Kivy %s - Pictures' % kivy.__version__
+Builder.load_string('''
+<CustomLayout>
+    canvas.before:
+        Color:
+            rgba: 0, 1, 0, 1
+        Rectangle: 
+            pos: self.pos
+            size: self.size
+<RootWidget>
+    CustomLayout:
+        AsyncImage:
+	    source: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Lovett_Hall.jpg'
 ''')
 
 
-class RootWidget(BoxLayout):
-    pass
+class MyPaintWidget(Widget):
+	
+	def on_touch_down(self, touch):
+		color = (random(), 1, 1)
+		with self.canvas:
+			Color(*color, mode='hsv')
+			d = 30.
+			#Ellipse(pos=(touch.x - d / 2, touch.y - d / 2), size=(d, d))
+			touch.ud['line'] = Line(points=(touch.x, touch.y))
 
-class CustomLayout(FloatLayout):
-    pass
+	def on_touch_move(self, touch):
+		touch.ud['line'].points += [touch.x, touch.y]
 
-class MainApp(App):
+class RootWidget(FloatLayout):
+  pass
 
-    def build(self):
-        return RootWidget()
+class MyPaintApp(App):
+
+	def build(self):
+		parent = Widget()
+		painter = MyPaintWidget()
+		clearbtn = Button(text='Clear')
+		parent.add_widget(painter)
+		parent.add_widget(clearbtn)
+
+		def clear_canvas(obj):
+			painter.canvas.clear()
+		clearbtn.bind(on_release=clear_canvas)
+
+		return parent
+
 
 if __name__ == '__main__':
-    MainApp().run()
+	MyPaintApp().run()
