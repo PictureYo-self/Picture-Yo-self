@@ -16,6 +16,7 @@ from kivy.clock import Clock
 f = open('/home/pi/Picture-Yo-self/code/pictures/picName.txt','r')
 picname = f.read()
 f.close()
+print picname
 
 f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','r')
 email = f.read()
@@ -23,11 +24,15 @@ f.close()
 email = '/home/pi/Picture-Yo-self/code/pictures/' + email + '.png'
 
 f = open('/home/pi/Picture-Yo-self/code/college.txt','r')
-college = f.read()
+col = f.readline().strip()
 f.close()
 
-reload(sys)
+college = '/home/pi/Picture-Yo-self/code/pictures/' + col
+print col
+#college = '/home/pi/Picture-Yo-self/code/pictures/Jones.jpg'#' + col + '.jpg' 
+print college
 
+#reload(sys)
 class MyPaintWidget(Widget):
 	def on_touch_down(self, touch):
 		color = (random(), 1, 1)
@@ -40,7 +45,7 @@ class MyPaintWidget(Widget):
 		
 class MainApp(App):
 	im=Image(source=picname, size_hint=(1,50))
-	crest=Image(source=college, size_hint=(1,25))
+	crest=Image(source=college, size_hint=(25,25))#, pos=(1,1))
 	def build(self):
 		root = BoxLayout(orientation='vertical')
 		parent = BoxLayout(orientation='horizontal')
@@ -67,16 +72,19 @@ class MainApp(App):
 		savebtn = Button(text='Save and send to email', size_hint=(1,5))
 		parent.add_widget(savebtn)
 		def save_pic(obj):
-		  root.remove_widget(parent)
+		  parent.remove_widget(savebtn)
+		  parent.remove_widget(clearbtn)
+		  parent.remove_widget(retakebtn)
 		  root.export_to_png(email)
 		  exit()
 		savebtn.bind(on_release=save_pic)
 
 		crestwid.add_widget(self.crest)
+		parent.add_widget(crestwid)
 		root.add_widget(self.im)
 		root.add_widget(painter)
 		root.add_widget(parent)		
-		root.add_widget(crestwid)
+		#root.add_widget(crestwid)
 		return root
 	
 class RootWidget(BoxLayout):
