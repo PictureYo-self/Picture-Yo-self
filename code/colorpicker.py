@@ -55,13 +55,13 @@ class ColPckr(ColorPicker):
 class ColPopup(Popup):
 	pass
 
-class Ex40(Widget):
+class Ex401(Widget):
     	selected_color = ListProperty(col)
     	def select_ColPckr(self,*args):
         	ColPopup().open()
 	def on_touch_down(self, touch):
         	if touch.x <100 and touch.y < 100:
-            		return super(Ex40, self).on_touch_down(touch)
+            		return super(Ex401, self).on_touch_down(touch)
         	sce = SelectedColorEllipse()
         	sce.selected_color = self.selected_color
         	sce.center = touch.pos
@@ -80,15 +80,15 @@ class MyPaintWidget(Widget):
 		touch.ud['line'].points += [touch.x, touch.y]
 '''
 
-class Ex40App(App):
+class Ex401App(App):
 #	im1=Image(source=picname, size_hint=(1,50))
 #	allow_stretch = BooleanProperty(True)
 #	im2=Image(source='/home/pi/Picture-Yo-self/code/pictures/Will.jpg') #,size=(10,5000))
 	def build(self):
-		root = BoxLayout(orientation='vertical')
+#		root = BoxLayout(orientation='vertical')
 #		parent = BoxLayout(orientation='horizontal')
 		#painter = MyPaintWidget()
-		painter = Ex40()
+#		painter = Ex40()
 		
 		'''
 		# create clear button
@@ -121,16 +121,16 @@ class Ex40App(App):
 		
 #		root.add_widget(self.im1) 
 #		root.add_widget(self.im2)
-		painter.canvas.ask_update()
+#		painter.canvas.ask_update()
 #		root.add_widget(painter)
 #		root.add_widget(parent)
 		#root.painter.canvas.ask_update()		
-		return Ex40()
-		return root
+		return Ex401()
+#		return root
 		return Ex40()
 		
 class RootWidget(BoxLayout):
     pass
 
 if __name__ == '__main__':
-    Ex40App().run()
+    Ex401App().run()
