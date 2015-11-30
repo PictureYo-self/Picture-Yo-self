@@ -23,6 +23,8 @@ python crestFloat.py
 
 filename="/home/pi/Picture-Yo-self/code/pictures/"$netid".png"
 
+convert $filename -crop 600x480+100+0 $filename
+
 mpack -s "Thanks, $name, for using Rice Photobooth!" -d ./pictures/body.txt $filename $email1
 
 filename2=`cat ./pictures/picName2.txt`
