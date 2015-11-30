@@ -19,7 +19,7 @@ fi
 
 echo "$col.jpg" > college.txt
 
-python crest.py
+python crestFloat.py
 
 filename="/home/pi/Picture-Yo-self/code/pictures/"$netid".png"
 
