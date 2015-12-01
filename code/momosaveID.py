@@ -11,4 +11,4 @@ f = open('/home/pi/Picture-Yo-self/code/pictures/email.txt','w')
 f.write(name2)
 f.close()
 
-execfile("momocapture.py")
+execfile("/home/pi/Picture-Yo-self/code/momocapture.py")
