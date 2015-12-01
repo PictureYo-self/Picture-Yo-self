@@ -17,3 +17,19 @@ Our strategy is to begin by building a basic photobooth device, where a user is 
 - picture frames
 - drawing or writing messages on the photo
 - incorporating automatic feature detection with OpenCV so users can distort or embellish facial features
+
+### Update 12/1/2015
+
+We have completed prototyping our final project, and have incorporated many of the functions we hoped to have including:
+
+- drawing and writing messages on photo
+- retake button
+- clear screen button to clear drawings/writings
+- crest of your college automatically embedded into photo -> by typing in your netID, the program will automatically find your college and put your college crest onto the picture
+- emailing picture to your Rice email with your name in the subject line
+
+Some ideas for future iterations of our device include:
+- filters
+- picture frames
+- automatic feature detection with OpenCV so users can distort or embellish facial features
+- allow users to choose color that they are writing with with colorwheel
